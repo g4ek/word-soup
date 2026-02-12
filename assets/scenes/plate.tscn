@@ -4,18 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://d1qxstayyvhnh" path="res://assets/sprites/plate.png" id="1_iyats"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iyats"]
-radius = 53.0
+radius = 109.004585
 
 [node name="Plate" type="Area2D" unique_id=1489769611 groups=["Plates"]]
+position = Vector2(-2, -17)
 script = ExtResource("1_3mbdg")
+spacing = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1625930415]
-scale = Vector2(3, 3)
+scale = Vector2(6.5, 6.5)
 texture = ExtResource("1_iyats")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807630633]
-position = Vector2(1, 10)
+position = Vector2(3, 21)
 shape = SubResource("CircleShape2D_iyats")
 
 [node name="SlotContainer" type="Node2D" parent="." unique_id=855376780]
-position = Vector2(-15, 15)
+position = Vector2(2, 17)

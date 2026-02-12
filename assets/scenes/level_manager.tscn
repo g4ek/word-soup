@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://46igq8a7m74l"]
+
+[ext_resource type="Script" uid="uid://seoibpi0ujmn" path="res://assets/scripts/level_manager.gd" id="1_jcmlt"]
+[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/level1.tscn" id="2_1qy8m"]
+[ext_resource type="PackedScene" uid="uid://dy78v3isb1asy" path="res://assets/ui/main_menu.tscn" id="3_ufje2"]
+
+[node name="LevelManager" type="Node" unique_id=597143822]
+script = ExtResource("1_jcmlt")
+levels = [ExtResource("2_1qy8m")]
+
+[node name="MainMenu" parent="." unique_id=1110174455 instance=ExtResource("3_ufje2")]

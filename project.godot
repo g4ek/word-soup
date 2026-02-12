@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Word DNA"
-run/main_scene="uid://mmaofh5vgnaw"
+config/name="Word Soup"
+run/main_scene="uid://46igq8a7m74l"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://q4abu6e6fkuh"]
+
+[ext_resource type="Texture2D" uid="uid://ycb7s66bepgc" path="res://assets/sprites/base_kitchen.png" id="1_hti0d"]
+[ext_resource type="Script" uid="uid://hh1jr4lmbldy" path="res://assets/scripts/base_kitchen.gd" id="1_o8nfi"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="3_ttt5i"]
+
+[node name="BaseKitchen" type="Node2D" unique_id=149435821]
+script = ExtResource("1_o8nfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1560698751]
+position = Vector2(576, 323.99997)
+scale = Vector2(7.68, 8.099999)
+texture = ExtResource("1_hti0d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1708298501]
+
+[node name="PotPlateButton" type="Button" parent="CanvasLayer" unique_id=59172634]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 127.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("3_ttt5i")
+theme_override_font_sizes/font_size = 48
+text = "Pot and Plate"
+metadata/_edit_use_anchors_ = true
