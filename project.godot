@@ -15,6 +15,10 @@ run/main_scene="uid://46igq8a7m74l"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/donut_collision_polygon2D/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")

@@ -7,19 +7,21 @@
 [node name="BaseKitchen" type="Node2D" unique_id=149435821]
 script = ExtResource("1_o8nfi")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1560698751]
-position = Vector2(576, 323.99997)
-scale = Vector2(7.68, 8.099999)
-texture = ExtResource("1_hti0d")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1708298501]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1539621357]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hti0d")
 
 [node name="PotPlateButton" type="Button" parent="CanvasLayer" unique_id=59172634]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 127.0
-offset_bottom = 47.0
+offset_right = 343.0
+offset_bottom = 73.0
 theme_override_fonts/font = ExtResource("3_ttt5i")
 theme_override_font_sizes/font_size = 48
 text = "Pot and Plate"
-metadata/_edit_use_anchors_ = true

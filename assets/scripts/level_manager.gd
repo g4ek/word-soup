@@ -1,8 +1,9 @@
 extends Node
 
 # put all your levels here in the inspector
-@export var levels : Array 
+@export var levels : Dictionary 
 var level
+var kitchen
 var num_level : int = 0
 
 @onready var main_menu: Control = $MainMenu
@@ -13,7 +14,6 @@ var num_level : int = 0
 func _ready() -> void:
 	main_menu.open_level_selection.connect(_on_open_level_selection)
 	level_selection.level_selected.connect(_on_level_selected)
-	
 	
 	main_menu.show()
 	level_selection.hide()
@@ -28,6 +28,7 @@ func _on_level_selected(index : int):
 	
 	if level != null:
 		level.queue_free()
+		kitchen.queue_free()
 	
 	load_level(num_level)
 	
@@ -45,6 +46,10 @@ func _on_next_level() -> void:
 	if level != null:
 		level.queue_free()
 		level = null
+		
+	if kitchen != null:
+		kitchen.queue_free()
+		kitchen = null
 	
 	if num_level >= levels.size():
 		main_menu.show()
@@ -55,8 +60,31 @@ func _on_next_level() -> void:
 	load_level(num_level)
 
 func load_level(index : int):
-	level = levels[index].instantiate()
+	level = levels.keys()[index].instantiate()
+	kitchen = levels.values()[index].instantiate()
+	
 	self.add_child(level)
+	self.add_child(kitchen)
+	
+	level.show()
+	level.get_node("CanvasLayer").show()
+	kitchen.hide()
+	kitchen.get_node("CanvasLayer").hide()
 	
 	level.go_to_menu.connect(_on_menu_selected)
 	level.next_level.connect(_on_next_level)
+	level.go_kitchen.connect(_on_kitchen_button_press)
+	kitchen.go_plate.connect(_on_plate_button_press)
+	
+func _on_kitchen_button_press() -> void:
+	kitchen.show()
+	kitchen.get_node("CanvasLayer").show()
+	level.hide()
+	level.get_node("CanvasLayer").hide()
+	
+
+func _on_plate_button_press() -> void:
+	level.show()
+	level.get_node("CanvasLayer").show()
+	kitchen.hide()
+	kitchen.get_node("CanvasLayer").hide()
