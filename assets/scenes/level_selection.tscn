@@ -12,24 +12,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_scpca")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=952005783]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=957702865]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=952005783]
+layout_mode = 2
 theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 50
 columns = 5
 
-[node name="L1Button" type="Button" parent="GridContainer" unique_id=1978314970]
+[node name="L1Button" type="Button" parent="MarginContainer/GridContainer" unique_id=1978314970]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -38,7 +39,7 @@ text = "Level
 1"
 autowrap_mode = 1
 
-[node name="L2Button" type="Button" parent="GridContainer" unique_id=265295941]
+[node name="L2Button" type="Button" parent="MarginContainer/GridContainer" unique_id=265295941]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -47,7 +48,7 @@ text = "Level
 2"
 autowrap_mode = 1
 
-[node name="L3Button" type="Button" parent="GridContainer" unique_id=1767981276]
+[node name="L3Button" type="Button" parent="MarginContainer/GridContainer" unique_id=1767981276]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -56,7 +57,7 @@ text = "Level
 3"
 autowrap_mode = 1
 
-[node name="L4Button" type="Button" parent="GridContainer" unique_id=527990910]
+[node name="L4Button" type="Button" parent="MarginContainer/GridContainer" unique_id=527990910]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -65,7 +66,7 @@ text = "Level
 4"
 autowrap_mode = 1
 
-[node name="L5Button" type="Button" parent="GridContainer" unique_id=620998525]
+[node name="L5Button" type="Button" parent="MarginContainer/GridContainer" unique_id=620998525]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -74,7 +75,7 @@ text = "Level
 5 "
 autowrap_mode = 1
 
-[node name="L6Button" type="Button" parent="GridContainer" unique_id=1784734076]
+[node name="L6Button" type="Button" parent="MarginContainer/GridContainer" unique_id=1784734076]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -83,7 +84,7 @@ text = "Level
 6"
 autowrap_mode = 1
 
-[node name="L7Button" type="Button" parent="GridContainer" unique_id=1513344243]
+[node name="L7Button" type="Button" parent="MarginContainer/GridContainer" unique_id=1513344243]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -92,7 +93,7 @@ text = "Level
 7"
 autowrap_mode = 1
 
-[node name="L8Button" type="Button" parent="GridContainer" unique_id=1962475557]
+[node name="L8Button" type="Button" parent="MarginContainer/GridContainer" unique_id=1962475557]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -101,7 +102,7 @@ text = "Level
 8"
 autowrap_mode = 1
 
-[node name="L9Button" type="Button" parent="GridContainer" unique_id=253750971]
+[node name="L9Button" type="Button" parent="MarginContainer/GridContainer" unique_id=253750971]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -110,7 +111,7 @@ text = "Level
 9"
 autowrap_mode = 1
 
-[node name="L10Button" type="Button" parent="GridContainer" unique_id=750747298]
+[node name="L10Button" type="Button" parent="MarginContainer/GridContainer" unique_id=750747298]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_2qta7")
@@ -119,13 +120,23 @@ text = "Level
 10"
 autowrap_mode = 1
 
-[connection signal="pressed" from="GridContainer/L1Button" to="." method="_on_l_1_button_pressed"]
-[connection signal="pressed" from="GridContainer/L2Button" to="." method="_on_l_2_button_pressed"]
-[connection signal="pressed" from="GridContainer/L3Button" to="." method="_on_l_3_button_pressed"]
-[connection signal="pressed" from="GridContainer/L4Button" to="." method="_on_l_4_button_pressed"]
-[connection signal="pressed" from="GridContainer/L5Button" to="." method="_on_l_5_button_pressed"]
-[connection signal="pressed" from="GridContainer/L6Button" to="." method="_on_l_6_button_pressed"]
-[connection signal="pressed" from="GridContainer/L7Button" to="." method="_on_l_7_button_pressed"]
-[connection signal="pressed" from="GridContainer/L8Button" to="." method="_on_l_8_button_pressed"]
-[connection signal="pressed" from="GridContainer/L9Button" to="." method="_on_l_9_button_pressed"]
-[connection signal="pressed" from="GridContainer/L10Button" to="." method="_on_l_10_button_pressed"]
+[node name="MenuButton" type="Button" parent="MarginContainer" unique_id=118237424]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_2qta7")
+theme_override_font_sizes/font_size = 48
+text = "Main Menu"
+autowrap_mode = 1
+
+[connection signal="pressed" from="MarginContainer/GridContainer/L1Button" to="." method="_on_l_1_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L2Button" to="." method="_on_l_2_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L3Button" to="." method="_on_l_3_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L4Button" to="." method="_on_l_4_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L5Button" to="." method="_on_l_5_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L6Button" to="." method="_on_l_6_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L7Button" to="." method="_on_l_7_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L8Button" to="." method="_on_l_8_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L9Button" to="." method="_on_l_9_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/L10Button" to="." method="_on_l_10_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -14,6 +14,7 @@ var num_level : int = 0
 func _ready() -> void:
 	main_menu.open_level_selection.connect(_on_open_level_selection)
 	level_selection.level_selected.connect(_on_level_selected)
+	level_selection.menu_button.connect(_on_menu_selected)
 	
 	main_menu.show()
 	level_selection.hide()

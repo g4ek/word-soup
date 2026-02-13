@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dy78v3isb1asy"]
 
 [ext_resource type="Script" uid="uid://dpf4kahhe22ci" path="res://assets/scripts/main_menu.gd" id="1_mkuvw"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="2_hskgt"]
 
 [node name="MainMenu" type="Control" unique_id=1110174455]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 30.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mkuvw")
@@ -18,20 +21,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/v_separation = 15
+theme_override_constants/v_separation = 40
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="GridContainer" unique_id=1579478202]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_hskgt")
 theme_override_font_sizes/font_size = 128
 text = "Word Soup"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="GridContainer" unique_id=1034641442]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.9999998, 0.53725815, 0.21264344, 1)
+theme_override_fonts/font = ExtResource("2_hskgt")
 theme_override_font_sizes/font_size = 64
 text = "Play"
 

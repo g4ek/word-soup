@@ -1,6 +1,7 @@
 extends Control
 
 signal level_selected(index : int)
+signal menu_button
 
 func _on_l_1_button_pressed() -> void:
 	level_selected.emit(0)
@@ -31,3 +32,6 @@ func _on_l_9_button_pressed() -> void:
 
 func _on_l_10_button_pressed() -> void:
 	level_selected.emit(9)
+
+func _on_menu_button_pressed() -> void:
+	menu_button.emit()
