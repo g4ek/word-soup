@@ -24,6 +24,9 @@ func _on_open_level_selection():
 	level_selection.show()
 	
 func _on_level_selected(index : int):
+	if index >= levels.size():
+		return
+	
 	level_selection.hide()
 	num_level = index
 	

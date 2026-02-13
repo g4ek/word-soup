@@ -81,6 +81,49 @@ theme_override_fonts/font = ExtResource("2_j62u1")
 theme_override_font_sizes/font_size = 48
 text = "Next Level"
 
+[node name="PauseOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1463441654]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(0.1254902, 0.1254902, 0.1254902, 0.8352941)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseOverlay" unique_id=552026464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseOverlay/CenterContainer" unique_id=119564408]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseOverlay/CenterContainer/VBoxContainer" unique_id=1848604535]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j62u1")
+theme_override_font_sizes/font_size = 72
+text = "Paused"
+
+[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseOverlay/CenterContainer/VBoxContainer" unique_id=1711699946]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j62u1")
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/PauseOverlay/CenterContainer/VBoxContainer" unique_id=1411920362]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j62u1")
+theme_override_font_sizes/font_size = 32
+text = "Main
+Menu"
+
 [node name="Counter" type="Sprite2D" parent="." unique_id=1227554935]
 position = Vector2(-3.0517578e-05, 0)
 scale = Vector2(1.024, 1.08)
@@ -100,3 +143,6 @@ position = Vector2(-319.99994, 28.999975)
 scale = Vector2(5, 5)
 
 [node name="Words" type="Node" parent="." unique_id=367841244]
+
+[connection signal="pressed" from="CanvasLayer/PauseOverlay/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseOverlay/CenterContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

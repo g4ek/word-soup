@@ -7,6 +7,9 @@ extends Node2D
 @onready var victory_label: Label = $CanvasLayer/VictoryLabel
 @onready var main_menu_button: Button = $CanvasLayer/MainMenuButton
 @onready var next_level_button: Button = $CanvasLayer/NextLevelButton
+@onready var pause_overlay: ColorRect = $CanvasLayer/PauseOverlay
+
+var word = "mickey the mouse"
 
 signal go_to_menu
 signal next_level
@@ -19,10 +22,12 @@ func _ready() -> void:
 	main_menu_button.pressed.connect(_on_menu_button_pressed)
 	next_level_button.pressed.connect(_on_next_level_button_pressed)
 	
-	start_level("mouse") 
+	start_level(word) 
+	
 	victory_label.hide()
 	main_menu_button.hide()
 	next_level_button.hide()
+	pause_overlay.hide()
 
 func start_level(target_word : String):
 	plate.build_word_slots(target_word)
@@ -60,7 +65,19 @@ func _on_kitchen_button_pressed() -> void:
 
 	
 func _on_menu_button_pressed() -> void:
+	get_tree().paused = false
 	go_to_menu.emit()
 	
 func _on_next_level_button_pressed() -> void:
 	next_level.emit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		toggle_pause()
+
+func _on_resume_button_pressed() -> void:
+	toggle_pause()
+	
+func toggle_pause() -> void:
+	get_tree().paused = !get_tree().paused
+	pause_overlay.visible = get_tree().paused

@@ -25,3 +25,5 @@ offset_bottom = 73.0
 theme_override_fonts/font = ExtResource("3_ttt5i")
 theme_override_font_sizes/font_size = 48
 text = "Pot and Plate"
+
+[connection signal="pressed" from="CanvasLayer/PotPlateButton" to="." method="_on_pot_plate_button_pressed"]

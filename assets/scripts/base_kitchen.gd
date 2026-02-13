@@ -8,8 +8,6 @@ signal go_plate
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	pot_plate_button.pressed.connect(_on_button_pressed)
 	self.hide()
 
 func adjust_scale() -> void:
@@ -20,6 +18,10 @@ func adjust_scale() -> void:
 	var scale_y = viewport_size.y / texture_size.y
 	
 	texture_rect.scale = Vector2(scale_x, scale_y)
-	
-func _on_button_pressed() -> void:
+
+func _on_pot_plate_button_pressed() -> void:
 	go_plate.emit()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		go_plate.emit()
