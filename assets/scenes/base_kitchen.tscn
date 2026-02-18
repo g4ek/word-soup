@@ -3,8 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://ycb7s66bepgc" path="res://assets/sprites/base_kitchen.png" id="1_hti0d"]
 [ext_resource type="Script" uid="uid://hh1jr4lmbldy" path="res://assets/scripts/base_kitchen.gd" id="1_o8nfi"]
 [ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="3_ttt5i"]
-[ext_resource type="PackedScene" uid="uid://dnd7hjnwj2bau" path="res://assets/scenes/drawer_inside.tscn" id="4_ttt5i"]
-[ext_resource type="Script" uid="uid://bg38icdvgkqr" path="res://assets/scenes/drawer_area.gd" id="5_s80vf"]
+[ext_resource type="Script" uid="uid://b042c57f3ugdv" path="res://assets/scripts/container_area.gd" id="4_s80vf"]
+[ext_resource type="PackedScene" uid="uid://dnd7hjnwj2bau" path="res://assets/scenes/container_inside.tscn" id="4_ttt5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26r34"]
+size = Vector2(99, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqwk"]
+size = Vector2(100, 121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s80vf"]
 size = Vector2(176, 48)
@@ -23,12 +29,6 @@ size = Vector2(115, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ya2s"]
 size = Vector2(115, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_26r34"]
-size = Vector2(99, 121)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqwk"]
-size = Vector2(100, 121)
 
 [node name="BaseKitchen" type="Node2D" unique_id=149435821 groups=["Kitchens"]]
 script = ExtResource("1_o8nfi")
@@ -53,61 +53,63 @@ theme_override_fonts/font = ExtResource("3_ttt5i")
 theme_override_font_sizes/font_size = 48
 text = "Pot and Plate"
 
-[node name="DrawerAreas" type="Node" parent="CanvasLayer" unique_id=1379612453]
+[node name="Containers" type="Node" parent="CanvasLayer" unique_id=1379612453]
 
-[node name="DrawerArea1" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=150633241]
-script = ExtResource("5_s80vf")
+[node name="CabinetArea1" type="Area2D" parent="CanvasLayer/Containers" unique_id=924070952]
+script = ExtResource("4_s80vf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea1" unique_id=1427597261]
-position = Vector2(457, 267)
-shape = SubResource("RectangleShape2D_s80vf")
-
-[node name="DrawerArea2" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1217706]
-script = ExtResource("5_s80vf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea2" unique_id=741466903]
-position = Vector2(457, 332)
-shape = SubResource("RectangleShape2D_ngvri")
-
-[node name="DrawerArea3" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=2061452367]
-script = ExtResource("5_s80vf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea3" unique_id=1678624482]
-position = Vector2(457, 397)
-shape = SubResource("RectangleShape2D_ubqcx")
-
-[node name="DrawerArea4" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1418256892]
-script = ExtResource("5_s80vf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea4" unique_id=573255980]
-position = Vector2(917.5, 320)
-shape = SubResource("RectangleShape2D_o4sjl")
-
-[node name="DrawerArea5" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1738820183]
-script = ExtResource("5_s80vf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea5" unique_id=248533728]
-position = Vector2(917.5, 368)
-shape = SubResource("RectangleShape2D_l2ce8")
-
-[node name="DrawerArea6" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1051358230]
-script = ExtResource("5_s80vf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea6" unique_id=1862685243]
-position = Vector2(917.5, 417)
-shape = SubResource("RectangleShape2D_4ya2s")
-
-[node name="CabinetArea1" type="Area2D" parent="CanvasLayer" unique_id=924070952]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/CabinetArea1" unique_id=499363211]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/CabinetArea1" unique_id=499363211]
 position = Vector2(664.5, 368.5)
 shape = SubResource("RectangleShape2D_26r34")
 
-[node name="CabinetArea2" type="Area2D" parent="CanvasLayer" unique_id=970034876]
+[node name="CabinetArea2" type="Area2D" parent="CanvasLayer/Containers" unique_id=970034876]
+script = ExtResource("4_s80vf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/CabinetArea2" unique_id=187034359]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/CabinetArea2" unique_id=187034359]
 position = Vector2(787, 368.5)
 shape = SubResource("RectangleShape2D_kyqwk")
+
+[node name="DrawerArea1" type="Area2D" parent="CanvasLayer/Containers" unique_id=150633241]
+script = ExtResource("4_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/DrawerArea1" unique_id=1427597261]
+position = Vector2(457, 267)
+shape = SubResource("RectangleShape2D_s80vf")
+
+[node name="DrawerArea2" type="Area2D" parent="CanvasLayer/Containers" unique_id=1217706]
+script = ExtResource("4_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/DrawerArea2" unique_id=741466903]
+position = Vector2(457, 332)
+shape = SubResource("RectangleShape2D_ngvri")
+
+[node name="DrawerArea3" type="Area2D" parent="CanvasLayer/Containers" unique_id=2061452367]
+script = ExtResource("4_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/DrawerArea3" unique_id=1678624482]
+position = Vector2(457, 397)
+shape = SubResource("RectangleShape2D_ubqcx")
+
+[node name="DrawerArea4" type="Area2D" parent="CanvasLayer/Containers" unique_id=1418256892]
+script = ExtResource("4_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/DrawerArea4" unique_id=573255980]
+position = Vector2(917.5, 320)
+shape = SubResource("RectangleShape2D_o4sjl")
+
+[node name="DrawerArea5" type="Area2D" parent="CanvasLayer/Containers" unique_id=1738820183]
+script = ExtResource("4_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/DrawerArea5" unique_id=248533728]
+position = Vector2(917.5, 368)
+shape = SubResource("RectangleShape2D_l2ce8")
+
+[node name="DrawerArea6" type="Area2D" parent="CanvasLayer/Containers" unique_id=1051358230]
+script = ExtResource("4_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Containers/DrawerArea6" unique_id=1862685243]
+position = Vector2(917.5, 417)
+shape = SubResource("RectangleShape2D_4ya2s")
 
 [node name="Drawer" parent="CanvasLayer" unique_id=1231009052 groups=["Kitchens"] instance=ExtResource("4_ttt5i")]
 visible = false

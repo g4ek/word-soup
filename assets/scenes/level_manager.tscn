@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://46igq8a7m74l"]
 
 [ext_resource type="Script" uid="uid://seoibpi0ujmn" path="res://assets/scripts/level_manager.gd" id="1_jcmlt"]
-[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/level1.tscn" id="2_1qy8m"]
+[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/base_level.tscn" id="2_1qy8m"]
 [ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="3_p0g4m"]
 [ext_resource type="PackedScene" uid="uid://dy78v3isb1asy" path="res://assets/ui/main_menu.tscn" id="3_ufje2"]
 [ext_resource type="PackedScene" uid="uid://bp1xm627ct5mg" path="res://assets/scenes/level_selection.tscn" id="4_1qy8m"]

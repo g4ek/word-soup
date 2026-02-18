@@ -88,7 +88,7 @@ func load_level(index : int):
 func _on_kitchen_button_press() -> void:
 	kitchen.show()
 	kitchen.get_node("CanvasLayer").show()
-	kitchen.set_drawers_enabled(true)
+	kitchen.set_containers_enabled(true)
 	
 	level.hide()
 	level.get_node("CanvasLayer").hide()
@@ -100,4 +100,4 @@ func _on_plate_button_press() -> void:
 	
 	kitchen.hide()
 	kitchen.get_node("CanvasLayer").hide()
-	kitchen.set_drawers_enabled(false)
+	kitchen.set_containers_enabled(false)

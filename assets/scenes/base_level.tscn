@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://mmaofh5vgnaw"]
 
 [ext_resource type="PackedScene" uid="uid://bi4a01h1dar48" path="res://assets/scenes/soup_pot.tscn" id="1_cb66b"]
-[ext_resource type="Script" uid="uid://dcch4ywrs5j5c" path="res://assets/scripts/serving_tray.gd" id="1_lr0kx"]
+[ext_resource type="Script" uid="uid://dcch4ywrs5j5c" path="res://assets/scripts/base_level.gd" id="1_lr0kx"]
 [ext_resource type="Texture2D" uid="uid://c8rsdxmpmmkdy" path="res://assets/sprites/counter.png" id="2_cb5na"]
 [ext_resource type="PackedScene" uid="uid://b2i7f2fq83alc" path="res://assets/scenes/plate.tscn" id="2_dis88"]
 [ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="2_j62u1"]
 
-[node name="Level1" type="Node2D" unique_id=1905470012]
+[node name="BaseLevel" type="Node2D" unique_id=1905470012]
 script = ExtResource("1_lr0kx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1602586567]

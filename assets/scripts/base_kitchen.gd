@@ -1,9 +1,8 @@
 extends Node2D
 
 @onready var pot_plate_button: Button = $CanvasLayer/PotPlateButton
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var texture_rect: TextureRect = $CanvasLayer/TextureRect
-@onready var drawer_areas: Node = $CanvasLayer/DrawerAreas
+@onready var container_areas: Node = $CanvasLayer/Containers
 @onready var drawer: Node2D = $CanvasLayer/Drawer
 
 
@@ -11,17 +10,17 @@ signal go_plate
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for area in drawer_areas.get_children():
+	for area in container_areas.get_children():
 		if area is Area2D:
-			area.drawer_requested.connect(_on_drawer_requested)
+			area.container_requested.connect(_on_container_requested)
 			area.input_pickable = true
 	
 	drawer.hide()
 	# self.hide()
 
-func setup_kitchen_drawers(word : String) -> void:
+func setup_kitchen_containers(word : String) -> void:
 	var letters = word.split("")
-	var areas = drawer_areas.get_children()
+	var areas = container_areas.get_children()
 	
 	for a in areas:
 		a.letter_to_spawn = ""
@@ -31,27 +30,27 @@ func setup_kitchen_drawers(word : String) -> void:
 			areas[i].letter_to_spawn = letters[i]
 
 func scatter_letters(word : String) -> void:
-	var areas = drawer_areas.get_children()
+	var areas = container_areas.get_children()
 	
 	for area in areas:
 		if area is Area2D:
 			area.clear_stored_letters()
 			
 	for character in word:
-		var random_drawer = areas.pick_random()
-		random_drawer.store_letter(character)
+		var random_container = areas.pick_random()
+		random_container.store_letter(character)
 
-func _on_drawer_requested(area : Area2D) -> void:
+func _on_container_requested(area : Area2D) -> void:
 	if drawer.visible:
 		return
 	
 	# drawer.prepare_drawer(letters)
-	drawer.open_drawer(area)
+	drawer.open_container(area)
 	drawer.show()
 	print("drawer activated")
 
-func set_drawers_enabled(is_enabled : bool) -> void:
-	for area in drawer_areas.get_children():
+func set_containers_enabled(is_enabled : bool) -> void:
+	for area in container_areas.get_children():
 		if area is Area2D:
 			area.input_pickable = is_enabled
 
@@ -70,5 +69,5 @@ func _on_pot_plate_button_pressed() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if drawer.visible:
-			drawer.close_drawer()
+			drawer.close_container()
 		go_plate.emit()

@@ -3,7 +3,7 @@ extends RigidBody2D
 const SIMMER_SPEED : float = 400.0 # how fast you want the letters to move
 var dragging = false
 var in_pot = true
-var in_drawer = false
+var in_container = false
 var current_slot = null
 @onready var soup_pot: StaticBody2D = get_tree().get_first_node_in_group("Pots")
 @onready var letter_container : Node2D = soup_pot.get_node("LetterContainer")
@@ -90,13 +90,13 @@ func check_snap() -> void:
 func _ready() -> void:
 	_update_visuals() 
 	
-	if in_drawer:
+	if in_container:
 		freeze = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if in_drawer:
+	if in_container:
 		freeze = true
 		lock_rotation = true
 		linear_velocity = Vector2.ZERO
@@ -135,7 +135,7 @@ func _physics_process(delta: float) -> void:
 		apply_simmer()
 
 func teleport_to_pot() -> void:
-	in_drawer = false
+	in_container = false
 	in_pot = true
 	
 	if soup_pot:

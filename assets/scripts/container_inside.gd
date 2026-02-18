@@ -4,10 +4,10 @@ extends Node2D
 @onready var texture_rect: TextureRect = $TextureRect
 @export var MARGIN : float = 100.0
 
-var current_drawer_area : Area2D = null
+var current_area : Area2D = null
 
-func open_drawer(area : Node2D) -> void:
-	current_drawer_area = area
+func open_container(area : Node2D) -> void:
+	current_area = area
 	var count = 0
 	
 	# clear the old levels from prev. opening
@@ -26,12 +26,12 @@ func open_drawer(area : Node2D) -> void:
 			)
 			
 			child.show()
-			child.in_drawer = true
+			child.in_container = true
 			child.freeze = true
 			
-	print("Drawer opened. Moved " + str(count) + " letters to UI.")
+	print("Container opened. Moved " + str(count) + " letters to UI.")
 
-#func prepare_drawer(letters : Array[String]) -> void:
+#func prepare_container(letters : Array[String]) -> void:
 #	for child in letter_spawn_point.get_children():
 #		child.queue_free()
 #	
@@ -46,13 +46,13 @@ func open_drawer(area : Node2D) -> void:
 #		new_letter.position = Vector2(randf_range(-300.0, 300.0), randf_range(-100.0, 100.0))
 
 # connected to the kitchen button
-func close_drawer() -> void:
+func close_container() -> void:
 	if not self.visible:
 		return
 	
-	if current_drawer_area:
+	if current_area:
 		for child in letter_spawn_point.get_children():
 			if child is RigidBody2D:
-				child.reparent(current_drawer_area)
+				child.reparent(current_area)
 				child.hide()
 	self.hide()
