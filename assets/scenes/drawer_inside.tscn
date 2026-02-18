@@ -1,20 +1,35 @@
 [gd_scene format=3 uid="uid://dnd7hjnwj2bau"]
 
 [ext_resource type="Texture2D" uid="uid://cdbkqe5i76d1p" path="res://assets/sprites/inside_drawer.png" id="1_8ir2x"]
+[ext_resource type="Script" uid="uid://bval5gu0x7axe" path="res://assets/scenes/drawer_inside.gd" id="1_njp3y"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="2_2woln"]
 
-[node name="DrawerInside" type="Node2D" unique_id=95956634]
+[node name="DrawerInside" type="Node2D" unique_id=1231009052]
+script = ExtResource("1_njp3y")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1529826724]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -411.0
-offset_top = -949.0
-offset_right = 389.0
-offset_bottom = 551.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 4.712389
+[node name="TextureRect" type="TextureRect" parent="." unique_id=759450537]
+offset_right = 1152.0
+offset_bottom = 648.0
 texture = ExtResource("1_8ir2x")
+expand_mode = 1
+
+[node name="KitchenButton" type="Button" parent="." unique_id=1624256092]
+anchors_preset = -1
+anchor_right = 0.15972222
+anchor_bottom = 0.11574074
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 26.0
+offset_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_2woln")
+theme_override_font_sizes/font_size = 48
+text = "Kitchen"
+metadata/_edit_use_anchors_ = true
 
 [node name="LetterSpawnPoint" type="Marker2D" parent="." unique_id=868098629]
+z_index = 1
+position = Vector2(576, 324)
+
+[connection signal="pressed" from="KitchenButton" to="." method="_on_kitchen_button_pressed"]

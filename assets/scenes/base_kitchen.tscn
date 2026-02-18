@@ -3,8 +3,28 @@
 [ext_resource type="Texture2D" uid="uid://ycb7s66bepgc" path="res://assets/sprites/base_kitchen.png" id="1_hti0d"]
 [ext_resource type="Script" uid="uid://hh1jr4lmbldy" path="res://assets/scripts/base_kitchen.gd" id="1_o8nfi"]
 [ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="3_ttt5i"]
+[ext_resource type="PackedScene" uid="uid://dnd7hjnwj2bau" path="res://assets/scenes/drawer_inside.tscn" id="4_ttt5i"]
+[ext_resource type="Script" uid="uid://bg38icdvgkqr" path="res://assets/scenes/drawer_area.gd" id="5_s80vf"]
 
-[node name="BaseKitchen" type="Node2D" unique_id=149435821]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s80vf"]
+size = Vector2(176, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngvri"]
+size = Vector2(176, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubqcx"]
+size = Vector2(176, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4sjl"]
+size = Vector2(115, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2ce8"]
+size = Vector2(115, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ya2s"]
+size = Vector2(115, 40)
+
+[node name="BaseKitchen" type="Node2D" unique_id=149435821 groups=["Kitchens"]]
 script = ExtResource("1_o8nfi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1708298501]
@@ -15,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_hti0d")
 
 [node name="PotPlateButton" type="Button" parent="CanvasLayer" unique_id=59172634]
@@ -25,5 +46,53 @@ offset_bottom = 73.0
 theme_override_fonts/font = ExtResource("3_ttt5i")
 theme_override_font_sizes/font_size = 48
 text = "Pot and Plate"
+
+[node name="DrawerAreas" type="Node" parent="CanvasLayer" unique_id=1379612453]
+
+[node name="DrawerArea1" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=150633241]
+script = ExtResource("5_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea1" unique_id=1427597261]
+position = Vector2(457, 267)
+shape = SubResource("RectangleShape2D_s80vf")
+
+[node name="DrawerArea2" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1217706]
+script = ExtResource("5_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea2" unique_id=741466903]
+position = Vector2(457, 332)
+shape = SubResource("RectangleShape2D_ngvri")
+
+[node name="DrawerArea3" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=2061452367]
+script = ExtResource("5_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea3" unique_id=1678624482]
+position = Vector2(457, 397)
+shape = SubResource("RectangleShape2D_ubqcx")
+
+[node name="DrawerArea4" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1418256892]
+script = ExtResource("5_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea4" unique_id=573255980]
+position = Vector2(917.5, 320)
+shape = SubResource("RectangleShape2D_o4sjl")
+
+[node name="DrawerArea5" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1738820183]
+script = ExtResource("5_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea5" unique_id=248533728]
+position = Vector2(917.5, 368)
+shape = SubResource("RectangleShape2D_l2ce8")
+
+[node name="DrawerArea6" type="Area2D" parent="CanvasLayer/DrawerAreas" unique_id=1051358230]
+script = ExtResource("5_s80vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea6" unique_id=1862685243]
+position = Vector2(917.5, 417)
+shape = SubResource("RectangleShape2D_4ya2s")
+
+[node name="Drawer" parent="CanvasLayer" unique_id=1231009052 groups=["Kitchens"] instance=ExtResource("4_ttt5i")]
+visible = false
+visibility_layer = 2
 
 [connection signal="pressed" from="CanvasLayer/PotPlateButton" to="." method="_on_pot_plate_button_pressed"]

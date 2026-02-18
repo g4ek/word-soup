@@ -2,12 +2,14 @@ extends Node2D
 
 @onready var soup_pot: StaticBody2D = $SoupPot
 @onready var plate: Area2D = $Plate
+
 @onready var kitchen_button: Button = $CanvasLayer/KitchenButton
 
 @onready var victory_label: Label = $CanvasLayer/VictoryLabel
 @onready var main_menu_button: Button = $CanvasLayer/MainMenuButton
 @onready var next_level_button: Button = $CanvasLayer/NextLevelButton
 @onready var pause_overlay: ColorRect = $CanvasLayer/PauseOverlay
+
 
 var word = "mickey the mouse"
 
@@ -31,8 +33,8 @@ func _ready() -> void:
 
 func start_level(target_word : String):
 	plate.build_word_slots(target_word)
-	soup_pot.gen_letters_from_word(target_word)
-
+	
+	# soup_pot.gen_letters_from_word(target_word)
 
 func _on_plate_level_won() -> void:
 	print("you won")

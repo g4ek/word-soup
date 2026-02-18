@@ -70,6 +70,11 @@ func load_level(index : int):
 	self.add_child(level)
 	self.add_child(kitchen)
 	
+	if level.word:
+		var clean_word = level.word.replace(" ", "")
+		kitchen.scatter_letters(clean_word)
+		print("level manager scattered the letters for " + clean_word)
+	
 	level.show()
 	level.get_node("CanvasLayer").show()
 	kitchen.hide()
