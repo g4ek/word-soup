@@ -45,9 +45,13 @@ func _on_container_requested(area : Area2D) -> void:
 		return
 	
 	# drawer.prepare_drawer(letters)
-	drawer.open_container(area)
+	if area.name.contains("Drawer"):
+		drawer.open_container(area, "drawer")
+	elif area.name.contains("Cabinet"):
+		drawer.open_container(area, "cabinet")
+
 	drawer.show()
-	print("drawer activated")
+	print("container activated")
 
 func set_containers_enabled(is_enabled : bool) -> void:
 	for area in container_areas.get_children():

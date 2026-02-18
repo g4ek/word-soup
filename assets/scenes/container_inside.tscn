@@ -14,19 +14,15 @@ texture = ExtResource("2_f1jke")
 expand_mode = 1
 
 [node name="KitchenButton" type="Button" parent="." unique_id=1624256092]
-anchors_preset = -1
-anchor_right = 0.15972222
-anchor_bottom = 0.11574074
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 26.0
-offset_bottom = 16.0
+offset_right = 210.0
+offset_bottom = 73.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_aycg6")
 theme_override_font_sizes/font_size = 48
 text = "Kitchen"
-metadata/_edit_use_anchors_ = true
 
 [node name="LetterSpawnPoint" type="Marker2D" parent="." unique_id=868098629]
 z_index = 1
