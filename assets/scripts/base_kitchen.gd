@@ -50,6 +50,11 @@ func _on_drawer_requested(area : Area2D) -> void:
 	drawer.show()
 	print("drawer activated")
 
+func set_drawers_enabled(is_enabled : bool) -> void:
+	for area in drawer_areas.get_children():
+		if area is Area2D:
+			area.input_pickable = is_enabled
+
 func adjust_scale() -> void:
 	var viewport_size = get_viewport_rect().size
 	var texture_size = texture_rect.texture.get_size()
@@ -64,4 +69,6 @@ func _on_pot_plate_button_pressed() -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
+		if drawer.visible:
+			drawer.close_drawer()
 		go_plate.emit()

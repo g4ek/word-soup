@@ -9,19 +9,25 @@ var current_drawer_area : Area2D = null
 func open_drawer(area : Node2D) -> void:
 	current_drawer_area = area
 	var count = 0
-	var contents = area.get_children()
 	
-	for child in contents:
+	# clear the old levels from prev. opening
+	for child in letter_spawn_point.get_children():
+		child.queue_free()
+	
+	for child in area.get_children():
 		if child is RigidBody2D:
-			child.reparent(letter_spawn_point, false)
-			child.show()
+			child.reparent(letter_spawn_point)
 			
 			count += 1
 			var size = texture_rect.size
-			child.global_position += Vector2(
+			child.position = Vector2(
 				randf_range(-size.x/2 + MARGIN, size.x/2 - MARGIN), 
 				randf_range(-size.y/2 + MARGIN, size.y/2 - MARGIN)
 			)
+			
+			child.show()
+			child.in_drawer = true
+			child.freeze = true
 			
 	print("Drawer opened. Moved " + str(count) + " letters to UI.")
 
@@ -39,10 +45,14 @@ func open_drawer(area : Node2D) -> void:
 #		letter_spawn_point.add_child(new_letter)
 #		new_letter.position = Vector2(randf_range(-300.0, 300.0), randf_range(-100.0, 100.0))
 
-
-func _on_kitchen_button_pressed() -> void:
+# connected to the kitchen button
+func close_drawer() -> void:
+	if not self.visible:
+		return
+	
 	if current_drawer_area:
 		for child in letter_spawn_point.get_children():
-			child.reparent(current_drawer_area)
-			child.hide()
+			if child is RigidBody2D:
+				child.reparent(current_drawer_area)
+				child.hide()
 	self.hide()

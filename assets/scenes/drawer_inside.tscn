@@ -32,4 +32,4 @@ metadata/_edit_use_anchors_ = true
 z_index = 1
 position = Vector2(576, 324)
 
-[connection signal="pressed" from="KitchenButton" to="." method="_on_kitchen_button_pressed"]
+[connection signal="pressed" from="KitchenButton" to="." method="close_drawer"]

@@ -11,6 +11,11 @@ script = ExtResource("1_lr0kx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1602586567]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=530634974]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+
 [node name="VictoryLabel" type="Label" parent="CanvasLayer" unique_id=737412138]
 visible = false
 anchors_preset = 8

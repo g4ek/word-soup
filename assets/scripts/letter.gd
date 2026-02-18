@@ -98,6 +98,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if in_drawer:
 		freeze = true
+		lock_rotation = true
+		linear_velocity = Vector2.ZERO
+		angular_velocity = 0
+		
 		if is_mouse_over() and Input.is_action_just_pressed("select"):
 			teleport_to_pot()
 		return
@@ -134,7 +138,10 @@ func teleport_to_pot() -> void:
 	in_drawer = false
 	in_pot = true
 	
-	self.reparent(letter_container)
-	
-	global_position = letter_container.global_position
-	freeze = false
+	if soup_pot:
+		self.reparent(letter_container)
+		
+		global_position = letter_container.global_position
+		freeze = false
+	else:
+		print("Could not find soup pot")

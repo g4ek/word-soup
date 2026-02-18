@@ -24,6 +24,12 @@ size = Vector2(115, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ya2s"]
 size = Vector2(115, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26r34"]
+size = Vector2(99, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqwk"]
+size = Vector2(100, 121)
+
 [node name="BaseKitchen" type="Node2D" unique_id=149435821 groups=["Kitchens"]]
 script = ExtResource("1_o8nfi")
 
@@ -90,6 +96,18 @@ script = ExtResource("5_s80vf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrawerAreas/DrawerArea6" unique_id=1862685243]
 position = Vector2(917.5, 417)
 shape = SubResource("RectangleShape2D_4ya2s")
+
+[node name="CabinetArea1" type="Area2D" parent="CanvasLayer" unique_id=924070952]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/CabinetArea1" unique_id=499363211]
+position = Vector2(664.5, 368.5)
+shape = SubResource("RectangleShape2D_26r34")
+
+[node name="CabinetArea2" type="Area2D" parent="CanvasLayer" unique_id=970034876]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/CabinetArea2" unique_id=187034359]
+position = Vector2(787, 368.5)
+shape = SubResource("RectangleShape2D_kyqwk")
 
 [node name="Drawer" parent="CanvasLayer" unique_id=1231009052 groups=["Kitchens"] instance=ExtResource("4_ttt5i")]
 visible = false
