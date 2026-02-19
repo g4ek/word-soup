@@ -11,6 +11,7 @@ var cabinet_y = 648.0
 const INSIDE_CABINET = preload("uid://i0dqf6hd8hd3")
 const INSIDE_DRAWER = preload("uid://cdbkqe5i76d1p")
 const INSIDE_CABINET_WIDE = preload("uid://b2m0fripssguh")
+const CLOSET = preload("uid://x5tx0fxilgtr")
 
 signal go_kitchen
 signal leave_kitchen
@@ -43,6 +44,9 @@ func open_container(area : Node2D, type: String) -> void:
 	elif type.to_lower() == "drawer":
 		texture_rect.texture = INSIDE_DRAWER
 		texture_rect.size = Vector2(cabinet_x, cabinet_y)
+	elif type.to_lower() == "closet":
+		texture_rect.texture = CLOSET
+		texture_rect.size.y = cabinet_x
 	
 	texture_rect.scale = Vector2.ONE
 	

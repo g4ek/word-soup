@@ -77,6 +77,8 @@ func _on_container_requested(area : Area2D) -> void:
 		drawer.open_container(area, "drawer")
 	elif area.name.contains("Cabinet"):
 		drawer.open_container(area, "cabinet")
+	elif area.name.contains("Closet"):
+		drawer.open_container(area, "closet")
 
 	drawer.show()
 	
