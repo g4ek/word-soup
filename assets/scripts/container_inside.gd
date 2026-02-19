@@ -4,13 +4,24 @@ extends Node2D
 @onready var texture_rect: TextureRect = $TextureRect
 @export var MARGIN : float = 100.0
 
-var cabinet_x = 576.0 * 2
-var cabinet_y = 324.0 * 2
+var cabinet_x = 1152.0
+var cabinet_y = 648.0
 
 const INSIDE_CABINET = preload("uid://i0dqf6hd8hd3")
 const INSIDE_DRAWER = preload("uid://cdbkqe5i76d1p")
 const INSIDE_CABINET_WIDE = preload("uid://b2m0fripssguh")
 
+var junk_scaling_config = {
+	"junk_paper": 7.0,
+	"junk_wood_spatula": 7.0,
+	"junk_mail": 6.0,
+	"junk_rubber_band": 6.0,
+	"junk_salt": 2.0,
+	"junk_pepper": 2.0,
+	"junk_screwdriver": 5.0,
+	"junk_whisk": 5.0,
+	"default": 2.5
+}
 
 var current_area : Area2D = null
 
@@ -45,9 +56,9 @@ func open_container(area : Node2D, type: String) -> void:
 	letter_spawn_point.scale = texture_rect.scale
 	
 	for child in area.get_children():
-		if child is RigidBody2D:
+		if child is RigidBody2D or child is Area2D:
 			child.reparent(letter_spawn_point, false)
-			
+			child.scale = Vector2.ONE
 			count += 1
 			var size = texture_rect.size
 			child.position = Vector2(
@@ -55,26 +66,31 @@ func open_container(area : Node2D, type: String) -> void:
 				randf_range(-size.y/2 + MARGIN, size.y/2 - MARGIN)
 			)
 			
+			
+			if "in_container" in child:
+				child.in_container = true
+				child.freeze = true
+				child.z_index = 1
+				
+			if child.name.to_lower().contains("junk") or child is Area2D:
+				child.rotation = randf_range(0, TAU)
+				child.z_index = 2
+				
+				var base_mult = junk_scaling_config["default"]
+				var sprite = child.get_node_or_null("Sprite2D")
+				
+				if sprite and sprite.texture:
+					var tex_path = sprite.texture.resource_path.to_lower()
+					
+					for key in junk_scaling_config.keys():
+						if key in tex_path:
+							base_mult = junk_scaling_config[key]
+							break
+				
+				child.scale = (Vector2.ONE / letter_spawn_point.scale) * base_mult
 			child.show()
-			child.in_container = true
-			child.freeze = true
-			child.scale = Vector2.ONE
 			
 	print("Container opened. Moved " + str(count) + " letters to UI.")
-
-#func prepare_container(letters : Array[String]) -> void:
-#	for child in letter_spawn_point.get_children():
-#		child.queue_free()
-#	
-#	for char in letters:
-#		var new_letter = letter_scene.instantiate()
-#		
-#		new_letter.character = char
-#		new_letter.in_drawer = true
-#		new_letter.in_pot = false
-#		
-#		letter_spawn_point.add_child(new_letter)
-#		new_letter.position = Vector2(randf_range(-300.0, 300.0), randf_range(-100.0, 100.0))
 
 # connected to the kitchen button
 func close_container() -> void:
@@ -83,7 +99,7 @@ func close_container() -> void:
 	
 	if current_area:
 		for child in letter_spawn_point.get_children():
-			if child is RigidBody2D:
+			if child is RigidBody2D or child is Area2D:
 				child.reparent(current_area)
 				child.hide()
 	self.hide()

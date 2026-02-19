@@ -36,6 +36,11 @@ pause={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Letters"
+2d_physics/layer_2="Junk"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

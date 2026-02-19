@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ch7lhtf3bgg8n"]
+
+[ext_resource type="Script" uid="uid://cjm1m00ikwasv" path="res://assets/scripts/junk.gd" id="1_p713q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p713q"]
+
+[node name="Junk" type="Area2D" unique_id=271018331]
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_p713q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=435190205]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1168483687]
+shape = SubResource("RectangleShape2D_p713q")

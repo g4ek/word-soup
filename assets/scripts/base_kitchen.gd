@@ -5,6 +5,20 @@ extends Node2D
 @onready var container_areas: Node = $CanvasLayer/Containers
 @onready var drawer: Node2D = $CanvasLayer/Drawer
 
+var junk_scene = preload("res://assets/scenes/junk.tscn")
+const JUNK_LOWER = 3
+const JUNK_UPPER = 6
+
+var junk_textures = [
+	preload("res://assets/sprites/Junk/junk_mail.png"),
+	preload("res://assets/sprites/Junk/junk_paper.png"),
+	preload("res://assets/sprites/Junk/junk_pepper.png"),
+	preload("res://assets/sprites/Junk/junk_rubber_band.png"),
+	preload("res://assets/sprites/Junk/junk_salt.png"),
+	preload("res://assets/sprites/Junk/junk_screwdriver.png"),
+	preload("res://assets/sprites/Junk/junk_whisk.png"),
+	preload("res://assets/sprites/Junk/junk_wood_spatula.png")
+]
 
 signal go_plate
 
@@ -39,6 +53,22 @@ func scatter_letters(word : String) -> void:
 	for character in word:
 		var random_container = areas.pick_random()
 		random_container.store_letter(character)
+		
+	for area in areas:
+		if area is Area2D:
+			var junk_count = randi_range(JUNK_LOWER, JUNK_UPPER)
+			for i in junk_count:
+				spawn_junk(area)
+
+func spawn_junk(area : Area2D) -> void:
+	var junk = junk_scene.instantiate()
+	
+	if junk_textures.size() > 0:
+		var tex = junk_textures.pick_random()
+		junk.get_node("Sprite2D").texture = tex
+		
+	junk.hide()
+	area.add_child(junk)
 
 func _on_container_requested(area : Area2D) -> void:
 	if drawer.visible:
