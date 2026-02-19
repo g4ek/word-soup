@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgedup54d0i8s"]
+
+[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/base_level.tscn" id="1_yqvk3"]
+
+[node name="Level2" unique_id=1905470012 instance=ExtResource("1_yqvk3")]
+word = "float above"

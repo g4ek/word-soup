@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ci2newhlsxva5"]
+
+[ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_prv27"]
+[ext_resource type="Texture2D" uid="uid://b10cqrhlnaris" path="res://assets/sprites/explode.png" id="2_u5kcn"]
+[ext_resource type="Texture2D" uid="uid://cscuknsw00amu" path="res://assets/sprites/life_buoy.png" id="3_k7b0d"]
+[ext_resource type="Texture2D" uid="uid://t1tnehw4hpaq" path="res://assets/sprites/arrow.png" id="4_si6xk"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="5_si6xk"]
+
+[node name="Kitchen2" unique_id=149435821 instance=ExtResource("1_prv27")]
+
+[node name="Explode" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=1852404525]
+position = Vector2(680, 148)
+scale = Vector2(9.875001, 9.449998)
+texture = ExtResource("2_u5kcn")
+
+[node name="LifeBuoy" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=1828725086]
+position = Vector2(614, 42)
+scale = Vector2(2.7265613, 2.1718748)
+texture = ExtResource("3_k7b0d")
+
+[node name="Arrow" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="2" unique_id=1336682757]
+position = Vector2(708.8852, 101.92665)
+rotation = -0.9103029
+scale = Vector2(2.5586634, 3.0687575)
+texture = ExtResource("4_si6xk")
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="3" unique_id=424578637]
+offset_left = 161.0
+offset_top = 122.0
+offset_right = 318.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0.67058825, 0, 0.043137256, 1)
+theme_override_fonts/font = ExtResource("5_si6xk")
+theme_override_font_sizes/font_size = 48
+text = "Oh no!!!"

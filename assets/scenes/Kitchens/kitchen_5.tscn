@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ctea0jnjp002l"]
+
+[ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_88fx2"]
+[ext_resource type="Texture2D" uid="uid://catfsdxw5ahuy" path="res://assets/sprites/moon.png" id="2_i4kbi"]
+
+[node name="Kitchen5" unique_id=149435821 instance=ExtResource("1_88fx2")]
+
+[node name="Moon" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=977096080]
+position = Vector2(818, 122.000015)
+scale = Vector2(2.0078132, 1.8984375)
+texture = ExtResource("2_i4kbi")

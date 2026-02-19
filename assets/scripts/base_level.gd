@@ -11,7 +11,7 @@ extends Node2D
 @onready var pause_overlay: ColorRect = $CanvasLayer/PauseOverlay
 
 
-var word = "mickey the mouse"
+@export var word : String
 
 signal go_to_menu
 signal next_level
@@ -38,7 +38,7 @@ func start_level(target_word : String):
 
 func _on_plate_level_won() -> void:
 	print("you won")
-	$CanvasLayer/VictoryLabel.text = "You won!"
+	victory_label.text = "You won!"
 	
 	victory_label.show()
 	next_level_button.show()

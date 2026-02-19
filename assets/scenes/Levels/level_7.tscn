@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://xvhgx6rqr807"]
+
+[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/base_level.tscn" id="1_6s6dv"]
+
+[node name="Level7" unique_id=1905470012 instance=ExtResource("1_6s6dv")]
+word = "icy road"

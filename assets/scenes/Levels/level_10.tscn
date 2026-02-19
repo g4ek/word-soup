@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkw3b0l52xm73"]
+
+[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/base_level.tscn" id="1_rstwv"]
+
+[node name="Level10" unique_id=1905470012 instance=ExtResource("1_rstwv")]
+word = "cold sweater"

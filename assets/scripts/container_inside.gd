@@ -64,6 +64,7 @@ func open_container(area : Node2D, type: String) -> void:
 	letter_spawn_point.scale = texture_rect.scale
 	
 	leave_kitchen.emit()
+	
 	for child in area.get_children():
 		if child is RigidBody2D or child is Area2D:
 			child.reparent(letter_spawn_point, false)

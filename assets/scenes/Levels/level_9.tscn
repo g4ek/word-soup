@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c8g5ddihnd6lu"]
+
+[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/base_level.tscn" id="1_bagkq"]
+
+[node name="Level9" unique_id=1905470012 instance=ExtResource("1_bagkq")]
+word = "blue icicle"

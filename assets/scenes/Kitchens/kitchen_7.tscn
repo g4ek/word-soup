@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://nldw1cprychs"]
+
+[ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_so0xf"]
+
+[node name="Kitchen7" unique_id=149435821 instance=ExtResource("1_so0xf")]

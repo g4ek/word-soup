@@ -1,15 +1,42 @@
 [gd_scene format=3 uid="uid://46igq8a7m74l"]
 
 [ext_resource type="Script" uid="uid://seoibpi0ujmn" path="res://assets/scripts/level_manager.gd" id="1_jcmlt"]
-[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/base_level.tscn" id="2_1qy8m"]
-[ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="3_p0g4m"]
+[ext_resource type="PackedScene" uid="uid://chcbmvtbl3vi7" path="res://assets/scenes/Levels/level_1.tscn" id="2_ufje2"]
+[ext_resource type="PackedScene" uid="uid://cds2aoacrbrcf" path="res://assets/scenes/Kitchens/kitchen_1.tscn" id="3_p0g4m"]
 [ext_resource type="PackedScene" uid="uid://dy78v3isb1asy" path="res://assets/ui/main_menu.tscn" id="3_ufje2"]
 [ext_resource type="PackedScene" uid="uid://bp1xm627ct5mg" path="res://assets/scenes/level_selection.tscn" id="4_1qy8m"]
+[ext_resource type="PackedScene" uid="uid://bgedup54d0i8s" path="res://assets/scenes/Levels/level_2.tscn" id="4_v5bi1"]
+[ext_resource type="PackedScene" uid="uid://ci2newhlsxva5" path="res://assets/scenes/Kitchens/kitchen_2.tscn" id="5_hf86m"]
+[ext_resource type="PackedScene" uid="uid://cu88aqd2kghnb" path="res://assets/scenes/Levels/level_3.tscn" id="6_2y6v8"]
+[ext_resource type="PackedScene" uid="uid://2juikfq68r3c" path="res://assets/scenes/Kitchens/kitchen_3.tscn" id="7_y1ft4"]
+[ext_resource type="PackedScene" uid="uid://od8dulrnf1r8" path="res://assets/scenes/Levels/level_4.tscn" id="8_hdmgy"]
+[ext_resource type="PackedScene" uid="uid://prpgt66naoft" path="res://assets/scenes/Kitchens/kitchen_4.tscn" id="9_h7woh"]
+[ext_resource type="PackedScene" uid="uid://dapvndeqg5vks" path="res://assets/scenes/Levels/level_5.tscn" id="10_fnyvu"]
+[ext_resource type="PackedScene" uid="uid://ctea0jnjp002l" path="res://assets/scenes/Kitchens/kitchen_5.tscn" id="11_im5l1"]
+[ext_resource type="PackedScene" uid="uid://cwlk3yldg40kd" path="res://assets/scenes/Levels/level_6.tscn" id="12_65qnp"]
+[ext_resource type="PackedScene" uid="uid://ca4orpdmectaf" path="res://assets/scenes/Kitchens/kitchen_6.tscn" id="13_hgd20"]
+[ext_resource type="PackedScene" uid="uid://xvhgx6rqr807" path="res://assets/scenes/Levels/level_7.tscn" id="14_do804"]
+[ext_resource type="PackedScene" uid="uid://nldw1cprychs" path="res://assets/scenes/Kitchens/kitchen_7.tscn" id="15_uidoy"]
+[ext_resource type="PackedScene" uid="uid://tu1xdcye2x6t" path="res://assets/scenes/Levels/level_8.tscn" id="16_wqtt7"]
+[ext_resource type="PackedScene" uid="uid://cic7rykx0ifx7" path="res://assets/scenes/Kitchens/kitchen_8.tscn" id="17_xh2f7"]
+[ext_resource type="PackedScene" uid="uid://c8g5ddihnd6lu" path="res://assets/scenes/Levels/level_9.tscn" id="18_wqtt7"]
+[ext_resource type="PackedScene" uid="uid://dqbdxhd41k5ny" path="res://assets/scenes/Kitchens/kitchen_9.tscn" id="19_xh2f7"]
+[ext_resource type="PackedScene" uid="uid://dkw3b0l52xm73" path="res://assets/scenes/Levels/level_10.tscn" id="20_xjjl6"]
+[ext_resource type="PackedScene" uid="uid://dptkxh4ee6jy0" path="res://assets/scenes/Kitchens/kitchen_10.tscn" id="21_te6ym"]
 
 [node name="LevelManager" type="Node" unique_id=597143822]
 script = ExtResource("1_jcmlt")
 levels = {
-ExtResource("2_1qy8m"): ExtResource("3_p0g4m")
+ExtResource("2_ufje2"): ExtResource("3_p0g4m"),
+ExtResource("4_v5bi1"): ExtResource("5_hf86m"),
+ExtResource("6_2y6v8"): ExtResource("7_y1ft4"),
+ExtResource("8_hdmgy"): ExtResource("9_h7woh"),
+ExtResource("10_fnyvu"): ExtResource("11_im5l1"),
+ExtResource("12_65qnp"): ExtResource("13_hgd20"),
+ExtResource("14_do804"): ExtResource("15_uidoy"),
+ExtResource("16_wqtt7"): ExtResource("17_xh2f7"),
+ExtResource("18_wqtt7"): ExtResource("19_xh2f7"),
+ExtResource("20_xjjl6"): ExtResource("21_te6ym")
 }
 
 [node name="MainMenu" parent="." unique_id=1110174455 instance=ExtResource("3_ufje2")]

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://2juikfq68r3c"]
+
+[ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_bv68r"]
+[ext_resource type="Texture2D" uid="uid://4qnkamb125e4" path="res://assets/sprites/rainbow_lotus.png" id="2_o0bgi"]
+[ext_resource type="Texture2D" uid="uid://bjkhjt80r2mo6" path="res://assets/sprites/cloud.png" id="3_k11n8"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="4_3r1hm"]
+
+[node name="Kitchen3" unique_id=149435821 instance=ExtResource("1_bv68r")]
+
+[node name="RainbowLotus" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=1033151624]
+position = Vector2(724, 213)
+scale = Vector2(1.7999952, 1.6400001)
+texture = ExtResource("2_o0bgi")
+
+[node name="Cloud" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=267655205]
+position = Vector2(864, 59)
+texture = ExtResource("3_k11n8")
+
+[node name="Cloud2" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="2" unique_id=1841863516]
+position = Vector2(939, 86)
+texture = ExtResource("3_k11n8")
+
+[node name="Cloud3" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="3" unique_id=383477771]
+position = Vector2(865, 98)
+texture = ExtResource("3_k11n8")
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="4" unique_id=818803780]
+offset_left = 489.0
+offset_top = 46.0
+offset_right = 850.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3r1hm")
+theme_override_font_sizes/font_size = 32
+text = "What a
+ beautiful day..."

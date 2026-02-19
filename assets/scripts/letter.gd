@@ -139,9 +139,20 @@ func teleport_to_pot() -> void:
 	in_pot = true
 	
 	if soup_pot:
-		self.reparent(letter_container)
+		var tween = create_tween()
+		input_pickable = false
 		
-		global_position = letter_container.global_position
-		freeze = false
+		tween.set_parallel(true)
+		tween.tween_property(self, "scale", Vector2.ZERO, \
+		0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		
+		
+		tween.finished.connect(func(): 
+			self.reparent(letter_container)
+			global_position = letter_container.global_position
+			scale = Vector2.ONE
+			freeze = false
+			input_pickable = true
+		)
 	else:
 		print("Could not find soup pot")

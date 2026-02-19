@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cwlk3yldg40kd"]
+
+[ext_resource type="PackedScene" uid="uid://mmaofh5vgnaw" path="res://assets/scenes/base_level.tscn" id="1_3xvww"]
+
+[node name="Level6" unique_id=1905470012 instance=ExtResource("1_3xvww")]
+word = "frozen lake"

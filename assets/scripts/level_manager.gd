@@ -33,6 +33,7 @@ func _on_level_selected(index : int):
 	if level != null:
 		level.queue_free()
 		kitchen.queue_free()
+		await get_tree().process_frame
 	
 	load_level(num_level)
 	
@@ -54,6 +55,8 @@ func _on_next_level() -> void:
 	if kitchen != null:
 		kitchen.queue_free()
 		kitchen = null
+	
+	await get_tree().process_frame
 	
 	if num_level >= levels.size():
 		main_menu.show()
@@ -93,6 +96,7 @@ func _on_kitchen_button_press() -> void:
 	
 	kitchen.get_node("CanvasLayer").get_node("PotPlateButton").show()
 	kitchen.get_node("CanvasLayer").get_node("TextureRect").show()
+	kitchen.get_node("CanvasLayer").get_node("LevelResources").show()
 	
 	kitchen.set_containers_enabled(true)
 	
@@ -111,4 +115,5 @@ func _on_plate_button_press() -> void:
 func _on_drawer_press() -> void:
 	kitchen.get_node("CanvasLayer").get_node("PotPlateButton").hide()
 	kitchen.get_node("CanvasLayer").get_node("TextureRect").hide()
+	kitchen.get_node("CanvasLayer").get_node("LevelResources").hide()
 	kitchen.set_containers_enabled(false)

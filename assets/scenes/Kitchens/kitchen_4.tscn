@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://prpgt66naoft"]
+
+[ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_gu1oj"]
+[ext_resource type="Texture2D" uid="uid://cef0pdnmdn5xk" path="res://assets/sprites/jungle_leaf.png" id="2_gvjgt"]
+[ext_resource type="Texture2D" uid="uid://cfvvvhvd0vhww" path="res://assets/sprites/water_drop.png" id="3_oabsa"]
+
+[node name="Kitchen4" unique_id=149435821 instance=ExtResource("1_gu1oj")]
+
+[node name="JungleLeaf" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=481878305]
+position = Vector2(217, 359)
+rotation = 0.66005814
+scale = Vector2(1.5974236, 1.6366427)
+texture = ExtResource("2_gvjgt")
+
+[node name="JungleLeaf2" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=1630649173]
+position = Vector2(1048, 23.999989)
+rotation = -2.1484475
+scale = Vector2(2.1875, 2.171875)
+texture = ExtResource("2_gvjgt")
+
+[node name="JungleLeaf3" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="2" unique_id=1277912969]
+position = Vector2(30, 120)
+rotation = 2.0522916
+scale = Vector2(1.9346443, 2.310574)
+texture = ExtResource("2_gvjgt")
+
+[node name="WaterDrop" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="3" unique_id=700356713]
+position = Vector2(738, 49.5)
+scale = Vector2(0.56249976, 0.921875)
+texture = ExtResource("3_oabsa")
+
+[node name="WaterDrop2" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="4" unique_id=870055629]
+position = Vector2(679, 98)
+scale = Vector2(0.62695366, 0.8498535)
+texture = ExtResource("3_oabsa")
+
+[node name="WaterDrop3" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="5" unique_id=1665165754]
+position = Vector2(745.6055, 150.44398)
+scale = Vector2(0.73107934, 0.89237547)
+texture = ExtResource("3_oabsa")
