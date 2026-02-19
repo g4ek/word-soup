@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="1_2qta7"]
 [ext_resource type="Script" uid="uid://b56a030ds1i7q" path="res://assets/scripts/level_selection.gd" id="1_scpca"]
+[ext_resource type="Texture2D" uid="uid://cdbkqe5i76d1p" path="res://assets/sprites/inside_drawer.png" id="2_t3jvk"]
 
 [node name="LevelSelection" type="Control" unique_id=110255353]
 layout_mode = 3
@@ -12,11 +13,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_scpca")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1322006076]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.2673612
+anchor_bottom = 2.1728394
+offset_right = -1460.0
+offset_bottom = -760.0
+texture = ExtResource("2_t3jvk")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=957702865]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50

@@ -2,16 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_t06s2"]
 [ext_resource type="Texture2D" uid="uid://cwwsqhi7i5032" path="res://assets/sprites/coconut.png" id="2_3lnhl"]
+[ext_resource type="Texture2D" uid="uid://cef0pdnmdn5xk" path="res://assets/sprites/jungle_leaf.png" id="2_5nkwy"]
 [ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="3_5nkwy"]
 
 [node name="Kitchen1" unique_id=149435821 instance=ExtResource("1_t06s2")]
 
-[node name="Coconut" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=1898111184]
+[node name="JungleLeaf" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=88140248]
+position = Vector2(426.00003, 126)
+rotation = -0.68348545
+texture = ExtResource("2_5nkwy")
+
+[node name="Coconut" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=1898111184]
 position = Vector2(462.75, 162)
 scale = Vector2(1.7734376, 1.546875)
 texture = ExtResource("2_3lnhl")
 
-[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=1199970593]
+[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="2" unique_id=1199970593]
 offset_left = 527.0
 offset_top = 22.0
 offset_right = 806.0
