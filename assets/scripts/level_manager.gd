@@ -78,10 +78,10 @@ func load_level(index : int):
 		kitchen.scatter_letters(clean_word)
 		print("level manager scattered the letters for " + clean_word)
 	
-	level.show()
-	level.get_node("CanvasLayer").show()
-	kitchen.hide()
-	kitchen.get_node("CanvasLayer").hide()
+	level.hide()
+	level.get_node("CanvasLayer").hide()
+	kitchen.show()
+	kitchen.get_node("CanvasLayer").show()
 	
 	level.go_to_menu.connect(_on_menu_selected)
 	level.next_level.connect(_on_next_level)
