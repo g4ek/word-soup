@@ -1,5 +1,36 @@
 [gd_scene format=3 uid="uid://dptkxh4ee6jy0"]
 
 [ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_37u3a"]
+[ext_resource type="Texture2D" uid="uid://55yt2ral7cm7" path="res://assets/sprites/CustomKitchens/night_kitchen.png" id="2_imppk"]
+[ext_resource type="Texture2D" uid="uid://catfsdxw5ahuy" path="res://assets/sprites/moon.png" id="3_elur2"]
+[ext_resource type="Texture2D" uid="uid://7cs1illfs1u6" path="res://assets/sprites/sweater.png" id="4_c6ikn"]
+[ext_resource type="Texture2D" uid="uid://cu81hktiqxjl3" path="res://assets/sprites/thermometer.png" id="5_qm01d"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="6_8xpnv"]
 
 [node name="Kitchen10" unique_id=149435821 instance=ExtResource("1_37u3a")]
+
+[node name="TextureRect" parent="CanvasLayer" parent_id_path=PackedInt32Array(1708298501) index="0" unique_id=1539621357]
+texture = ExtResource("2_imppk")
+
+[node name="Moon" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=104451123]
+position = Vector2(915, 90)
+texture = ExtResource("3_elur2")
+
+[node name="Sweater" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=1088355514]
+position = Vector2(743.00006, 77)
+scale = Vector2(4.125, 4.453125)
+texture = ExtResource("4_c6ikn")
+
+[node name="Thermometer" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="2" unique_id=899517015]
+position = Vector2(445, 105.00001)
+scale = Vector2(2.0624998, 2.46875)
+texture = ExtResource("5_qm01d")
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="3" unique_id=1036691735]
+offset_left = 342.0
+offset_top = 513.0
+offset_right = 875.0
+offset_bottom = 562.0
+theme_override_fonts/font = ExtResource("6_8xpnv")
+theme_override_font_sizes/font_size = 48
+text = "lets just keep it simple."

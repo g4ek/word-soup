@@ -1,5 +1,75 @@
 [gd_scene format=3 uid="uid://ca4orpdmectaf"]
 
 [ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_1mr1x"]
+[ext_resource type="Texture2D" uid="uid://bxbn1w1xkgwka" path="res://assets/sprites/CustomKitchens/outside_winter_kitchen.png" id="2_mwkoh"]
+[ext_resource type="Texture2D" uid="uid://g3vkq4bl876d" path="res://assets/sprites/pond.png" id="3_5pcdc"]
+[ext_resource type="Texture2D" uid="uid://42dlewtljv3s" path="res://assets/sprites/CustomKitchens/outside_winter_kitchen_2.png" id="3_pekcd"]
+[ext_resource type="Texture2D" uid="uid://buraoxscoql41" path="res://assets/sprites/ice cube.png" id="4_pekcd"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="5_5pcdc"]
+
+[sub_resource type="Animation" id="Animation_l0ugj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_mwkoh")]
+}
+
+[sub_resource type="Animation" id="Animation_35sx6"]
+resource_name = "snow"
+length = 0.7
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_mwkoh"), ExtResource("3_pekcd")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gs1ih"]
+_data = {
+&"RESET": SubResource("Animation_l0ugj"),
+&"snow": SubResource("Animation_35sx6")
+}
 
 [node name="Kitchen6" unique_id=149435821 instance=ExtResource("1_1mr1x")]
+
+[node name="TextureRect" parent="CanvasLayer" parent_id_path=PackedInt32Array(1708298501) index="0" unique_id=1539621357]
+texture = ExtResource("2_mwkoh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect" index="0" unique_id=747767374]
+libraries/ = SubResource("AnimationLibrary_gs1ih")
+autoplay = &"snow"
+
+[node name="Pond" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=644880347]
+position = Vector2(204.48187, 520.6732)
+scale = Vector2(10.4838085, 7.4272876)
+texture = ExtResource("3_5pcdc")
+
+[node name="IceCube" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=576733405]
+position = Vector2(161.48187, 532.6732)
+scale = Vector2(2.7115083, 3.1993678)
+texture = ExtResource("4_pekcd")
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="2" unique_id=24514934]
+offset_left = 419.0
+offset_top = 111.0
+offset_right = 948.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.014896477, 0.021234911, 0.02454837, 1)
+theme_override_fonts/font = ExtResource("5_5pcdc")
+theme_override_font_sizes/font_size = 48
+text = "Where'd my walls go?!"

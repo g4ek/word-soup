@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_gu1oj"]
 [ext_resource type="Texture2D" uid="uid://cef0pdnmdn5xk" path="res://assets/sprites/jungle_leaf.png" id="2_gvjgt"]
+[ext_resource type="Texture2D" uid="uid://clt3hxgxmfmo6" path="res://assets/sprites/CustomKitchens/jungle_kitchen.png" id="2_oabsa"]
 [ext_resource type="Texture2D" uid="uid://cfvvvhvd0vhww" path="res://assets/sprites/water_drop.png" id="3_oabsa"]
 
 [node name="Kitchen4" unique_id=149435821 instance=ExtResource("1_gu1oj")]
+
+[node name="TextureRect" parent="CanvasLayer" parent_id_path=PackedInt32Array(1708298501) index="0" unique_id=1539621357]
+texture = ExtResource("2_oabsa")
 
 [node name="JungleLeaf" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=481878305]
 position = Vector2(217, 359)

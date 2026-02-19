@@ -3,14 +3,31 @@
 [ext_resource type="Texture2D" uid="uid://ddrb0p22ar2ud" path="res://assets/sprites/soup_pot.png" id="1_37nre"]
 [ext_resource type="Script" uid="uid://8v6je0ikxsyq" path="res://assets/scripts/soup_pot.gd" id="1_vamx5"]
 [ext_resource type="Script" uid="uid://crq4lptsrmclu" path="res://addons/donut_collision_polygon2D/donut_collision_polygon2D.gd" id="2_qij1e"]
+[ext_resource type="Texture2D" uid="uid://b0m1frj0yg3i" path="res://assets/sprites/soup_pot_2.png" id="3_fv7vb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqj0c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_37nre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fv7vb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="SoupPot" type="StaticBody2D" unique_id=403137548 groups=["Pots"]]
 script = ExtResource("1_vamx5")
 
-[node name="SoupPot" type="Sprite2D" parent="." unique_id=1185705718]
+[node name="SoupPot" type="AnimatedSprite2D" parent="." unique_id=1349949046]
 position = Vector2(0, 18.999989)
 scale = Vector2(7, 7)
-texture = ExtResource("1_37nre")
+sprite_frames = SubResource("SpriteFrames_jqj0c")
+autoplay = "default"
+frame_progress = 0.5873565
 
 [node name="DonutCollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1285758761 groups=["Pots"]]
 position = Vector2(-1, -5.9999995)

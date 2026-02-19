@@ -1,5 +1,28 @@
 [gd_scene format=3 uid="uid://cic7rykx0ifx7"]
 
 [ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_1nif0"]
+[ext_resource type="Texture2D" uid="uid://lvbtad70yl1g" path="res://assets/sprites/CustomKitchens/winter_kitchen.png" id="2_k7hnn"]
+[ext_resource type="Texture2D" uid="uid://djtyoly58qdbj" path="res://assets/sprites/snowflake.png" id="3_aaoj7"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="4_aaoj7"]
 
 [node name="Kitchen8" unique_id=149435821 instance=ExtResource("1_1nif0")]
+
+[node name="TextureRect" parent="CanvasLayer" parent_id_path=PackedInt32Array(1708298501) index="0" unique_id=1539621357]
+texture = ExtResource("2_k7hnn")
+
+[node name="Snowflake" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=767780740]
+position = Vector2(902, 125.49999)
+scale = Vector2(2.5312505, 2.6718745)
+texture = ExtResource("3_aaoj7")
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=1118903656]
+offset_left = 374.0
+offset_top = 35.0
+offset_right = 769.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_aaoj7")
+theme_override_font_sizes/font_size = 48
+text = "lets go i have 
+four walls 
+and a roof again"

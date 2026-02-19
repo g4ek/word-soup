@@ -1,5 +1,83 @@
 [gd_scene format=3 uid="uid://dqbdxhd41k5ny"]
 
 [ext_resource type="PackedScene" uid="uid://q4abu6e6fkuh" path="res://assets/scenes/base_kitchen.tscn" id="1_nik73"]
+[ext_resource type="Texture2D" uid="uid://bxbn1w1xkgwka" path="res://assets/sprites/CustomKitchens/outside_winter_kitchen.png" id="2_o7ddg"]
+[ext_resource type="Texture2D" uid="uid://42dlewtljv3s" path="res://assets/sprites/CustomKitchens/outside_winter_kitchen_2.png" id="3_iob8a"]
+[ext_resource type="Texture2D" uid="uid://cd8pvjl38oxn1" path="res://assets/sprites/pine_tree.png" id="3_q65pm"]
+[ext_resource type="Texture2D" uid="uid://5ugikf54qer3" path="res://assets/sprites/ornament.png" id="4_iob8a"]
+[ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="5_fqkb6"]
+
+[sub_resource type="Animation" id="Animation_fqkb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_o7ddg")]
+}
+
+[sub_resource type="Animation" id="Animation_0giae"]
+resource_name = "snow"
+length = 0.7
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_o7ddg"), ExtResource("3_iob8a")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhfhf"]
+_data = {
+&"RESET": SubResource("Animation_fqkb6"),
+&"snow": SubResource("Animation_0giae")
+}
 
 [node name="Kitchen9" unique_id=149435821 instance=ExtResource("1_nik73")]
+
+[node name="TextureRect" parent="CanvasLayer" parent_id_path=PackedInt32Array(1708298501) index="0" unique_id=1539621357]
+texture = ExtResource("2_o7ddg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect" index="0" unique_id=731357469]
+libraries/ = SubResource("AnimationLibrary_nhfhf")
+autoplay = &"snow"
+
+[node name="PineTree" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="0" unique_id=459988421]
+position = Vector2(192.00002, 299.00003)
+rotation = 3.1415927
+scale = Vector2(6.826278, -9.278165)
+texture = ExtResource("3_q65pm")
+
+[node name="Ornament" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="1" unique_id=1846375869]
+position = Vector2(251, 299)
+texture = ExtResource("4_iob8a")
+
+[node name="Ornament2" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="2" unique_id=1126245338]
+position = Vector2(150, 365)
+texture = ExtResource("4_iob8a")
+
+[node name="Ornament3" type="Sprite2D" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="3" unique_id=1691786829]
+position = Vector2(180, 233)
+texture = ExtResource("4_iob8a")
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelResources" parent_id_path=PackedInt32Array(2063341192) index="4" unique_id=1730050264]
+offset_left = 695.0
+offset_top = 86.0
+offset_right = 848.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_fqkb6")
+theme_override_font_sizes/font_size = 64
+text = "nvm."
