@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j3m08u2fc0xu"
-path="res://.godot/imported/overnight icecle blue.png-067d41e0506afe1af6208c805050f243.ctex"
+uid="uid://djtyoly58qdbj"
+path="res://.godot/imported/snowflake.png-b0780cc3f2720aefb0fd16d17a3198df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/overnight icecle blue.png"
-dest_files=["res://.godot/imported/overnight icecle blue.png-067d41e0506afe1af6208c805050f243.ctex"]
+source_file="res://assets/sprites/snowflake.png"
+dest_files=["res://.godot/imported/snowflake.png-b0780cc3f2720aefb0fd16d17a3198df.ctex"]
 
 [params]
 

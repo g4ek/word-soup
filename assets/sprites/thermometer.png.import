@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyychvnwjhall"
-path="res://.godot/imported/overnight thermometer.png-a96ee2828d2d6500c9462abd7e7ef249.ctex"
+uid="uid://cu81hktiqxjl3"
+path="res://.godot/imported/thermometer.png-4913afffa5564233e5217036d8ee66ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/overnight thermometer.png"
-dest_files=["res://.godot/imported/overnight thermometer.png-a96ee2828d2d6500c9462abd7e7ef249.ctex"]
+source_file="res://assets/sprites/thermometer.png"
+dest_files=["res://.godot/imported/thermometer.png-4913afffa5564233e5217036d8ee66ce.ctex"]
 
 [params]
 

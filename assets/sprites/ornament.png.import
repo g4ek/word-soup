@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxqjltwsxhfvc"
-path="res://.godot/imported/overnight snowflake.png-0299485d368eff471c52dc29d0e13deb.ctex"
+uid="uid://5ugikf54qer3"
+path="res://.godot/imported/ornament.png-2d3be5aa8e4d4089005cb78cae32a510.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/overnight snowflake.png"
-dest_files=["res://.godot/imported/overnight snowflake.png-0299485d368eff471c52dc29d0e13deb.ctex"]
+source_file="res://assets/sprites/ornament.png"
+dest_files=["res://.godot/imported/ornament.png-2d3be5aa8e4d4089005cb78cae32a510.ctex"]
 
 [params]
 
