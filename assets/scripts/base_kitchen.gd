@@ -30,7 +30,6 @@ func _ready() -> void:
 			area.input_pickable = true
 	
 	drawer.hide()
-	# self.hide()
 
 func setup_kitchen_containers(word : String) -> void:
 	var letters = word.split("")
@@ -74,13 +73,13 @@ func _on_container_requested(area : Area2D) -> void:
 	if drawer.visible:
 		return
 	
-	# drawer.prepare_drawer(letters)
 	if area.name.contains("Drawer"):
 		drawer.open_container(area, "drawer")
 	elif area.name.contains("Cabinet"):
 		drawer.open_container(area, "cabinet")
 
 	drawer.show()
+	
 	print("container activated")
 
 func set_containers_enabled(is_enabled : bool) -> void:

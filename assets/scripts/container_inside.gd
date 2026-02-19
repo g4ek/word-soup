@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var letter_spawn_point: Marker2D = $LetterSpawnPoint
 @onready var texture_rect: TextureRect = $TextureRect
+
 @export var MARGIN : float = 100.0
 
 var cabinet_x = 1152.0
@@ -11,15 +12,18 @@ const INSIDE_CABINET = preload("uid://i0dqf6hd8hd3")
 const INSIDE_DRAWER = preload("uid://cdbkqe5i76d1p")
 const INSIDE_CABINET_WIDE = preload("uid://b2m0fripssguh")
 
+signal go_kitchen
+signal leave_kitchen
+
 var junk_scaling_config = {
 	"junk_paper": 7.0,
 	"junk_wood_spatula": 7.0,
 	"junk_mail": 6.0,
-	"junk_rubber_band": 6.0,
-	"junk_salt": 2.0,
-	"junk_pepper": 2.0,
-	"junk_screwdriver": 5.0,
-	"junk_whisk": 5.0,
+	"junk_rubber_band": 3.7,
+	"junk_salt": 2.3,
+	"junk_pepper": 2.3,
+	"junk_screwdriver": 6.0,
+	"junk_whisk": 5.5,
 	"default": 2.5
 }
 
@@ -55,6 +59,7 @@ func open_container(area : Node2D, type: String) -> void:
 	texture_rect.scale = Vector2(scale_factor, scale_factor)
 	letter_spawn_point.scale = texture_rect.scale
 	
+	leave_kitchen.emit()
 	for child in area.get_children():
 		if child is RigidBody2D or child is Area2D:
 			child.reparent(letter_spawn_point, false)
@@ -71,6 +76,8 @@ func open_container(area : Node2D, type: String) -> void:
 				child.in_container = true
 				child.freeze = true
 				child.z_index = 1
+				child.rotation = 0
+				child.scale = (Vector2.ONE / letter_spawn_point.scale)
 				
 			if child.name.to_lower().contains("junk") or child is Area2D:
 				child.rotation = randf_range(0, TAU)
@@ -103,3 +110,4 @@ func close_container() -> void:
 				child.reparent(current_area)
 				child.hide()
 	self.hide()
+	go_kitchen.emit()

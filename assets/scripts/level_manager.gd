@@ -84,10 +84,16 @@ func load_level(index : int):
 	level.next_level.connect(_on_next_level)
 	level.go_kitchen.connect(_on_kitchen_button_press)
 	kitchen.go_plate.connect(_on_plate_button_press)
+	kitchen.get_node("CanvasLayer").get_node("Drawer").go_kitchen.connect(_on_kitchen_button_press)
+	kitchen.get_node("CanvasLayer").get_node("Drawer").leave_kitchen.connect(_on_drawer_press)
 	
 func _on_kitchen_button_press() -> void:
 	kitchen.show()
 	kitchen.get_node("CanvasLayer").show()
+	
+	kitchen.get_node("CanvasLayer").get_node("PotPlateButton").show()
+	kitchen.get_node("CanvasLayer").get_node("TextureRect").show()
+	
 	kitchen.set_containers_enabled(true)
 	
 	level.hide()
@@ -100,4 +106,9 @@ func _on_plate_button_press() -> void:
 	
 	kitchen.hide()
 	kitchen.get_node("CanvasLayer").hide()
+	kitchen.set_containers_enabled(false)
+	
+func _on_drawer_press() -> void:
+	kitchen.get_node("CanvasLayer").get_node("PotPlateButton").hide()
+	kitchen.get_node("CanvasLayer").get_node("TextureRect").hide()
 	kitchen.set_containers_enabled(false)
