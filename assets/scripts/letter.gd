@@ -5,19 +5,21 @@ var dragging = false
 var in_pot = true
 var in_container = false
 var current_slot = null
+
 @onready var soup_pot: StaticBody2D = get_tree().get_first_node_in_group("Pots")
 @onready var letter_container : Node2D = soup_pot.get_node("LetterContainer")
 
 @onready var default_letter: Sprite2D = $DefaultLetter
 @onready var plate: Area2D = get_tree().get_first_node_in_group("Plates")
 
+@onready var pop_sound: AudioStreamPlayer2D = $PopSound
+@onready var click_sound: AudioStreamPlayer2D = $ClickSound
 
 @export var character: String = "default":
 	set(value):
 		character = value.to_lower() # make sure it's always lowercase
 		if is_node_ready():
 			_update_visuals()
-
 
 func _update_visuals():
 	var path : String = "res://assets/sprites/Letters/" + character + "_letter.png"
@@ -39,6 +41,8 @@ func is_mouse_over() -> bool:
 	return dist <= 30.0
 
 func snap_to_slot(slot : Node2D):
+	click_sound.play()
+	
 	global_position = slot.global_position
 	global_rotation = 0
 	freeze = true
@@ -58,7 +62,8 @@ func return_to_pot():
 		in_pot = true
 		freeze = false
 	else:
-		# use a tween for smoot movement
+		# use a tween for smooth movement
+		
 		var tween = create_tween()
 		
 		tween.tween_property(self, "global_position", soup_pot.global_position,\
@@ -76,11 +81,21 @@ func check_snap() -> void:
 	
 	for slot in plate.get_node("SlotContainer").get_children():
 		var dist = global_position.distance_to(slot.global_position)
-		if dist < shortest_dist and slot.get_meta("occupied") == false:
+		if dist < shortest_dist:
 			shortest_dist = dist
 			closest_slot = slot
 	
 	if closest_slot:
+		# trade if slot is occupied
+		if closest_slot.get_meta("occupied"):
+			var existing_letter = closest_slot.get_meta("letter_node")
+			if existing_letter and existing_letter != self:
+				existing_letter.current_slot = null
+				existing_letter.return_to_pot()
+				
+				closest_slot.set_meta("occupied", false)
+				closest_slot.set_meta("letter_node", null)
+				
 		snap_to_slot(closest_slot)
 	else:
 		return_to_pot()
@@ -118,8 +133,12 @@ func _physics_process(delta: float) -> void:
 			
 	# if the player is NOT dragging
 	else:
+		if Global.is_kitchen_blocking:
+			return
 		# checks if player clicked the letter
 		if is_mouse_over() and Input.is_action_just_pressed("select"):
+			pop_sound.play()
+			
 			dragging = true
 			freeze = true
 			in_pot = false
@@ -135,6 +154,8 @@ func _physics_process(delta: float) -> void:
 		apply_simmer()
 
 func teleport_to_pot() -> void:
+	pop_sound.play()
+	
 	in_container = false
 	in_pot = true
 	

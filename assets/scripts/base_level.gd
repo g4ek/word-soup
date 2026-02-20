@@ -10,6 +10,7 @@ extends Node2D
 @onready var next_level_button: Button = $CanvasLayer/NextLevelButton
 @onready var pause_overlay: ColorRect = $CanvasLayer/PauseOverlay
 
+@onready var victory_sound: AudioStreamPlayer2D = $VictorySound
 
 @export var word : String
 
@@ -37,6 +38,8 @@ func start_level(target_word : String):
 	# soup_pot.gen_letters_from_word(target_word)
 
 func _on_plate_level_won() -> void:
+	victory_sound.play()
+	
 	print("you won")
 	victory_label.text = "You won!"
 	

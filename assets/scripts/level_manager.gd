@@ -38,6 +38,8 @@ func _on_level_selected(index : int):
 	load_level(num_level)
 	
 func _on_menu_selected() -> void:
+	MusicManager.play_menu_music()
+	
 	if level != null:
 		level.queue_free()
 		level = null
@@ -67,6 +69,8 @@ func _on_next_level() -> void:
 	load_level(num_level)
 
 func load_level(index : int):
+	MusicManager.stop_menu_music()
+	
 	level = levels.keys()[index].instantiate()
 	kitchen = levels.values()[index].instantiate()
 	
@@ -102,7 +106,7 @@ func _on_kitchen_button_press() -> void:
 	
 	level.hide()
 	level.get_node("CanvasLayer").hide()
-	
+	Global.is_kitchen_blocking = true
 
 func _on_plate_button_press() -> void:
 	level.show()
@@ -112,8 +116,12 @@ func _on_plate_button_press() -> void:
 	kitchen.get_node("CanvasLayer").hide()
 	kitchen.set_containers_enabled(false)
 	
+	Global.is_kitchen_blocking = false
+	
 func _on_drawer_press() -> void:
 	kitchen.get_node("CanvasLayer").get_node("PotPlateButton").hide()
 	kitchen.get_node("CanvasLayer").get_node("TextureRect").hide()
 	kitchen.get_node("CanvasLayer").get_node("LevelResources").hide()
 	kitchen.set_containers_enabled(false)
+	
+	Global.is_kitchen_blocking = false

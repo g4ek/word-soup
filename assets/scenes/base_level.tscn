@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rsdxmpmmkdy" path="res://assets/sprites/counter.png" id="2_cb5na"]
 [ext_resource type="PackedScene" uid="uid://b2i7f2fq83alc" path="res://assets/scenes/plate.tscn" id="2_dis88"]
 [ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="2_j62u1"]
+[ext_resource type="AudioStream" uid="uid://fo5lj2jgg1iv" path="res://assets/audio/victory.wav" id="6_7svux"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1905470012]
 script = ExtResource("1_lr0kx")
@@ -150,6 +151,10 @@ position = Vector2(-319.99994, 28.999975)
 scale = Vector2(5, 5)
 
 [node name="Words" type="Node" parent="." unique_id=367841244]
+
+[node name="VictorySound" type="AudioStreamPlayer2D" parent="." unique_id=289760789]
+stream = ExtResource("6_7svux")
+volume_db = -6.0
 
 [connection signal="pressed" from="CanvasLayer/PauseOverlay/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseOverlay/CenterContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

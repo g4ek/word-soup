@@ -3,6 +3,10 @@ extends Node2D
 @onready var letter_spawn_point: Marker2D = $LetterSpawnPoint
 @onready var texture_rect: TextureRect = $TextureRect
 
+@onready var drawer_sound: AudioStreamPlayer2D = $DrawerSound
+@onready var cabinet_sound: AudioStreamPlayer2D = $CabinetSound
+@onready var close_sound: AudioStreamPlayer2D = $CloseSound
+
 @export var MARGIN : float = 100.0
 
 var cabinet_x = 1152.0
@@ -31,6 +35,7 @@ var junk_scaling_config = {
 var current_area : Area2D = null
 
 func open_container(area : Node2D, type: String) -> void:
+	
 	current_area = area
 	var count = 0
 
@@ -39,12 +44,15 @@ func open_container(area : Node2D, type: String) -> void:
 		child.free()
 	
 	if type.to_lower() == "cabinet":
+		cabinet_sound.play()
 		texture_rect.texture = INSIDE_CABINET_WIDE
 		texture_rect.size.y = cabinet_x
 	elif type.to_lower() == "drawer":
+		drawer_sound.play()
 		texture_rect.texture = INSIDE_DRAWER
 		texture_rect.size = Vector2(cabinet_x, cabinet_y)
 	elif type.to_lower() == "closet":
+		cabinet_sound.play()
 		texture_rect.texture = CLOSET
 		texture_rect.size.y = cabinet_x
 	
@@ -108,6 +116,8 @@ func open_container(area : Node2D, type: String) -> void:
 func close_container() -> void:
 	if not self.visible:
 		return
+	
+	close_sound.play()
 	
 	if current_area:
 		for child in letter_spawn_point.get_children():

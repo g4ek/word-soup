@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bval5gu0x7axe" path="res://assets/scripts/container_inside.gd" id="1_mvqmq"]
 [ext_resource type="Texture2D" uid="uid://cdbkqe5i76d1p" path="res://assets/sprites/inside_drawer.png" id="2_f1jke"]
 [ext_resource type="FontFile" uid="uid://c82v6nnwr2qvs" path="res://assets/fonts/fonts/connection/ConnectionBold.otf" id="3_aycg6"]
+[ext_resource type="AudioStream" uid="uid://baj1l44hdk7lw" path="res://assets/audio/drawer.wav" id="4_f1jke"]
+[ext_resource type="AudioStream" uid="uid://b47xl4n1vkxb7" path="res://assets/audio/cabinet.wav" id="5_aycg6"]
+[ext_resource type="AudioStream" uid="uid://5a8rdldnyt54" path="res://assets/audio/close.wav" id="6_vlwl8"]
 
 [node name="ContainerInside" type="Node2D" unique_id=1231009052]
 script = ExtResource("1_mvqmq")
@@ -37,5 +40,17 @@ text = "Kitchen"
 [node name="LetterSpawnPoint" type="Marker2D" parent="." unique_id=868098629]
 z_index = 2
 position = Vector2(576, 324)
+
+[node name="DrawerSound" type="AudioStreamPlayer2D" parent="." unique_id=1054247326]
+stream = ExtResource("4_f1jke")
+volume_db = -1.684
+
+[node name="CabinetSound" type="AudioStreamPlayer2D" parent="." unique_id=417765135]
+stream = ExtResource("5_aycg6")
+volume_db = -2.105
+
+[node name="CloseSound" type="AudioStreamPlayer2D" parent="." unique_id=111655279]
+stream = ExtResource("6_vlwl8")
+volume_db = -2.105
 
 [connection signal="pressed" from="KitchenButton" to="." method="close_container"]
