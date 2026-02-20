@@ -6,7 +6,6 @@ extends Node
 func _ready() -> void:
 	add_child(menu_music)
 	menu_music.stream = preload("res://assets/audio/Word_Soup_Theme.ogg")
-	menu_music.bus = "Music"
 
 func play_menu_music() -> void:
 	if not menu_music.playing:
